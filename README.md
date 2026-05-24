@@ -29,7 +29,6 @@ An advanced, scalable automation test framework for both UI and API testing, fea
 - Cross-browser UI automation
 - BDD-style test scenarios
 - API test automation with request/response validation
-- Parallel test execution
 - Automatic driver management
 - Detailed HTML and screenshot reporting
 - Page Object Model for maintainability
@@ -48,30 +47,6 @@ An advanced, scalable automation test framework for both UI and API testing, fea
 | REST Assured       | API testing                  |
 | Extent Reports     | HTML reporting               |
 | WebDriverManager   | Browser driver management    |
-
----
-
-## Project Structure
-
-```
-src/
-  main/java/
-    drivers/           # WebDriver setup and management
-    pages/             # Page Object classes
-    api/               # API client, models, services
-    utils/             # Utilities (waits, config, etc.)
-    config/            # Configuration classes
-  test/java/
-    runners/           # Test runners for UI/API
-    stepdefinitions/   # Step definitions for Cucumber
-    hooks/             # Test hooks (setup/teardown)
-  test/resources/
-    features/          # Cucumber feature files
-    config/            # Test configuration
-    testdata/          # Test data files
-pom.xml                # Maven build file
-README.md              # Project documentation
-```
 
 ---
 
@@ -105,13 +80,13 @@ mvn clean install
 ### Run UI Tests
 
 ```sh
-mvn test -Dcucumber.filter.tags="@ui"
+mvn test "-Dcucumber.filter.tags=@ui"
 ```
 
 ### Run API Tests
 
 ```sh
-mvn test -Dcucumber.filter.tags="@api"
+mvn test "-Dcucumber.filter.tags=@api"
 ```
 
 ---
