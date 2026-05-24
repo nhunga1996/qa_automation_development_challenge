@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="/WaitUtils (snapshot).java">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="/WaitUtils (snapshot).java" />
+              <option name="originalContent" value="package utils;&#10;&#10;public class WaitUtils {&#10;    // TODO: Implement wait utility methods&#10;}&#10;" />
+              <option name="updatedContent" value="package utils;&#10;&#10;import java.time.Duration;&#10;import java.util.function.Supplier;&#10;&#10;public class WaitUtils {&#10;    /**&#10;     * Waits until the given condition returns true or the timeout is reached.&#10;     * &#10;     * @param condition        the condition to check&#10;     * @param timeoutSeconds   the maximum time to wait in seconds&#10;     * @param pollIntervalMillis the interval between checks in milliseconds&#10;     * @return true if the condition is met within the timeout, false otherwise&#10;     */&#10;    public static boolean awaitSuccessOrTimeout(Supplier&lt;Boolean&gt; condition, long timeoutSeconds,&#10;            long pollIntervalMillis) {&#10;        long end = System.currentTimeMillis() + Duration.ofSeconds(timeoutSeconds).toMillis();&#10;        while (System.currentTimeMillis() &lt; end) {&#10;            try {&#10;                if (condition.get()) {&#10;                    return true;&#10;                }&#10;                Thread.sleep(pollIntervalMillis);&#10;            } catch (InterruptedException e) {&#10;                Thread.currentThread().interrupt();&#10;                break;&#10;            }&#10;        }&#10;        return false;&#10;    }&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

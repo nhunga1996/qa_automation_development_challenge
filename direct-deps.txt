@@ -1,0 +1,15 @@
+
+The following files have been resolved:
+   io.qameta.allure:allure-testng:jar:2.29.0:compile
+   tech.grasshopper:extentreports-cucumber7-adapter:jar:1.14.0:compile
+   io.github.bonigarcia:webdrivermanager:jar:6.1.0:compile
+   io.cucumber:cucumber-java:jar:7.18.0:compile
+   org.testng:testng:jar:7.10.2:compile
+   io.cucumber:cucumber-testng:jar:7.18.0:compile
+   org.projectlombok:lombok:jar:1.18.34:provided
+   io.cucumber:cucumber-picocontainer:jar:7.18.0:test
+   org.jeasy:easy-random-core:jar:5.0.0:test
+   io.rest-assured:rest-assured:jar:5.5.0:compile
+   com.fasterxml.jackson.core:jackson-databind:jar:2.15.2:compile
+   org.seleniumhq.selenium:selenium-java:jar:4.21.0:compile
+
