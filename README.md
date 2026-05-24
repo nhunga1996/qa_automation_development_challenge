@@ -29,7 +29,6 @@ An advanced, scalable automation test framework for both UI and API testing, fea
 - Cross-browser UI automation
 - BDD-style test scenarios
 - API test automation with request/response validation
-- Parallel test execution
 - Automatic driver management
 - Detailed HTML and screenshot reporting
 - Page Object Model for maintainability
@@ -48,30 +47,6 @@ An advanced, scalable automation test framework for both UI and API testing, fea
 | REST Assured       | API testing                  |
 | Extent Reports     | HTML reporting               |
 | WebDriverManager   | Browser driver management    |
-
----
-
-## Project Structure
-
-```
-src/
-  main/java/
-    drivers/           # WebDriver setup and management
-    pages/             # Page Object classes
-    api/               # API client, models, services
-    utils/             # Utilities (waits, config, etc.)
-    config/            # Configuration classes
-  test/java/
-    runners/           # Test runners for UI/API
-    stepdefinitions/   # Step definitions for Cucumber
-    hooks/             # Test hooks (setup/teardown)
-  test/resources/
-    features/          # Cucumber feature files
-    config/            # Test configuration
-    testdata/          # Test data files
-pom.xml                # Maven build file
-README.md              # Project documentation
-```
 
 ---
 
@@ -105,13 +80,13 @@ mvn clean install
 ### Run UI Tests
 
 ```sh
-mvn test -Dcucumber.filter.tags="@ui"
+mvn test "-Dcucumber.filter.tags=@ui"
 ```
 
 ### Run API Tests
 
 ```sh
-mvn test -Dcucumber.filter.tags="@api"
+mvn test "-Dcucumber.filter.tags=@api"
 ```
 
 ---
@@ -133,6 +108,12 @@ mvn test -Dcucumber.filter.tags="@api"
 - Pass/fail status and timestamps
 - API/UI execution visibility
 - Embedded screenshots for UI failures
+
+  <img width="1906" height="906" alt="image" src="https://github.com/user-attachments/assets/48836506-a851-46ee-8380-d6e85312ca03" />
+
+  <img width="1917" height="912" alt="image" src="https://github.com/user-attachments/assets/ee421db3-a6de-4869-b613-d2e7790909d4" />
+
+
 
 ---
 
