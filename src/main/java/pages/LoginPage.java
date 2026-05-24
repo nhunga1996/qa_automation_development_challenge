@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import reports.ExtentLogger;
 
 public class LoginPage extends BasePage {
 
@@ -31,26 +32,33 @@ public class LoginPage extends BasePage {
 
     public LoginPage enterUsername(String username){
         typeText(usernameTextBox, username);
+        ExtentLogger.info(username);
         return this;
     }
 
     public LoginPage enterPassword(String password){
         typeText(passwordTextBox, password);
+        ExtentLogger.info(password);
         return this;
     }
 
     public OrangeHrmHomePage clickLogin(){
         click(loginButton);
+        ExtentLogger.info("");
         OrangeHrmHomePage orangeHrmHomePagePage = new OrangeHrmHomePage();
         orangeHrmHomePagePage.waitForPageLoaded();
         return orangeHrmHomePagePage;
     }
 
     public String getUserNameVaLue() {
-        return getText(demoCredentialsUserNameValue).split(":")[1].trim();
+        String value = getText(demoCredentialsUserNameValue).split(":")[1].trim();
+        ExtentLogger.info(value);
+        return value;
     }
 
     public String getPasswordVaLue() {
-        return getText(demoCredentialsPasswordValue).split(":")[1].trim();
+        String value = getText(demoCredentialsPasswordValue).split(":")[1].trim();
+        ExtentLogger.info(value);
+        return value;
     }
 }

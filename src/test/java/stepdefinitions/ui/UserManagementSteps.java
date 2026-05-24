@@ -7,6 +7,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import models.SystemUser;
+import org.testng.Assert;
 import pages.admin.UserManagementPage;
 import randomizer.ObjectMother;
 import randomizer.RandomizerSupport;
@@ -55,6 +56,6 @@ public class UserManagementSteps {
     @Then("the user should be found in the search results")
     public void verifyUserIsFound() {
         SystemUser systemUser = testContext.getScenarioContext().get(ContextKey.CREATED_USER);
-        userManagementPage.isUserDisplayed(systemUser.getUsername());
+        Assert.assertTrue(userManagementPage.isUserDisplayed(systemUser.getUsername()),"The user is displayed on the search result");
     }
 }

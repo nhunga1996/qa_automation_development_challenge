@@ -2,6 +2,7 @@ package pages.admin;
 
 import org.openqa.selenium.By;
 import pages.BasePage;
+import reports.ExtentLogger;
 
 public class AdminPage extends BasePage {
 
@@ -15,6 +16,7 @@ public class AdminPage extends BasePage {
 
     public UserManagementPage clickUserManagement(){
         click(userManagementMenu);
+        ExtentLogger.info("");
         UserManagementPage userManagementPage = new UserManagementPage();
         userManagementPage.waitForPageLoaded();
         return userManagementPage;

@@ -2,7 +2,6 @@ package stepdefinitions.ui;
 
 import context.TestContext;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import pages.OrangeHrmHomePage;
 import pages.admin.AdminPage;
 

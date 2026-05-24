@@ -2,6 +2,7 @@ package pages.admin;
 
 import org.openqa.selenium.By;
 import pages.BasePage;
+import reports.ExtentLogger;
 
 public class UserManagementPage extends BasePage {
 
@@ -27,21 +28,26 @@ public class UserManagementPage extends BasePage {
 
     public UserManagementPage enterUserName(String username){
         typeText(usernameTextBox, username);
+        ExtentLogger.info(username);
         return this;
     }
 
     public UserManagementPage clickSearch(){
         click(searchButton);
+        ExtentLogger.info("");
         return this;
     }
 
     public UserManagementPage waitForPageLoadingComplete(){
         waitForSpinnerToDisappear(loadingSpinner);
         waitForElementVisible(resultTable);
+        ExtentLogger.info("");
         return this;
     }
 
     public boolean isUserDisplayed(String username) {
-        return isElementDisplayed(By.xpath(String.format(rowTable, username)));
+        boolean isUserDisplayed = isElementDisplayed(By.xpath(String.format(rowTable, username)));
+        ExtentLogger.info(String.valueOf(isUserDisplayed));
+        return isUserDisplayed;
     }
 }

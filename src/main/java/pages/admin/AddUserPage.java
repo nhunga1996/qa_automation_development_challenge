@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import pages.BasePage;
+import reports.ExtentLogger;
 
 import java.time.Duration;
 
@@ -26,9 +27,10 @@ public class AddUserPage extends BasePage {
     }
 
     public AddUserPage selectUserRole(String role) {
-        By dropdownElement  = By.xpath(String.format(dropdown, "User Role"));
+        By dropdownElement = By.xpath(String.format(dropdown, "User Role"));
         By optionElement = By.xpath(String.format(option, role));
         selectDropdownOption(dropdownElement, optionElement);
+        ExtentLogger.info(role);
         return this;
     }
 
@@ -36,50 +38,41 @@ public class AddUserPage extends BasePage {
         typeText(employeeNameComboBox, employeeName);
         waitForElementVisible(By.xpath(String.format(option, employeeName)));
         click(By.xpath(String.format(option, employeeName)));
+        ExtentLogger.info(employeeName);
         return this;
     }
 
     public AddUserPage selectStatus(String status) {
-        By dropdownElement  = By.xpath(String.format(dropdown, "Status"));
+        By dropdownElement = By.xpath(String.format(dropdown, "Status"));
         By optionElement = By.xpath(String.format(option, status));
         selectDropdownOption(dropdownElement, optionElement);
+        ExtentLogger.info(status);
         return this;
     }
 
     public AddUserPage enterUsername(String username) {
         typeText(userNameTextBox, username);
+        ExtentLogger.info(username);
         return this;
     }
 
     public AddUserPage enterPassword(String password) {
         typeText(passwordTextBox, password);
+        ExtentLogger.info(password);
         return this;
     }
 
     public AddUserPage enterConfirmPassword(String confirmPassword) {
         typeText(confirmPasswordTextBox, confirmPassword);
+        ExtentLogger.info(confirmPassword);
         return this;
     }
 
     public UserManagementPage clickSaveButton() {
         click(saveButton);
-        UserManagementPage userManagementPage =  new UserManagementPage();
+        UserManagementPage userManagementPage = new UserManagementPage();
         Assert.assertTrue(isDisplayed(successToast));
+        ExtentLogger.info("");
         return userManagementPage;
-    }
-
-
-
-    private void selectFirstEmployeeName() {
-        WebElement input = waitForElementClickable(employeeNameComboBox);
-        actions.click(input)
-                .sendKeys("a")
-                .pause(Duration.ofMillis(3000))
-                .perform();
-
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(
-                By.xpath("//div[@role='option']"), 0
-        ));
-        actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
     }
 }

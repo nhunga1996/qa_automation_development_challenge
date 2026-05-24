@@ -3,6 +3,7 @@ package pages.Pim;
 import org.openqa.selenium.By;
 import pages.BasePage;
 import pages.admin.UserManagementPage;
+import reports.ExtentLogger;
 
 public class PimPage extends BasePage {
 
@@ -16,6 +17,7 @@ public class PimPage extends BasePage {
 
     public AddEmployeePage clickAddEmployeeMenu(){
         click(addEmployeeMenu);
+        ExtentLogger.info("");
         AddEmployeePage addEmployeePage = new AddEmployeePage();
         addEmployeePage.waitForPageLoaded();
         return addEmployeePage;

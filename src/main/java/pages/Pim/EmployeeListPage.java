@@ -3,6 +3,7 @@ package pages.Pim;
 import org.openqa.selenium.By;
 import pages.BasePage;
 import pages.admin.UserManagementPage;
+import reports.ExtentLogger;
 
 public class EmployeeListPage extends BasePage {
     private final By pageHeader = By.xpath("//h6[text()='Employee Information']");
@@ -19,21 +20,26 @@ public class EmployeeListPage extends BasePage {
 
     public EmployeeListPage enterEmployeeName(String employeeName){
         typeText(employeeNameTextBox, employeeName);
+        ExtentLogger.info(employeeName);
         return this;
     }
 
     public EmployeeListPage clickSearch(){
         click(searchButton);
+        ExtentLogger.info("");
         return this;
     }
 
     public EmployeeListPage waitForPageLoadingComplete(){
         waitForSpinnerToDisappear(loadingSpinner);
         waitForElementVisible(resultTable);
+        ExtentLogger.info("");
         return this;
     }
 
     public boolean isEmployeeDisplayed(String firstName, String lastName) {
-        return isElementDisplayed(By.xpath(String.format(rowTable, firstName, lastName)));
+        boolean isEmployeeDisplayed = isElementDisplayed(By.xpath(String.format(rowTable, firstName, lastName)));
+        ExtentLogger.info(String.valueOf(isEmployeeDisplayed));
+        return isEmployeeDisplayed;
     }
 }
