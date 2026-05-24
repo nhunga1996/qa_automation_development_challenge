@@ -109,6 +109,12 @@ mvn test "-Dcucumber.filter.tags=@api"
 - API/UI execution visibility
 - Embedded screenshots for UI failures
 
+  <img width="1906" height="906" alt="image" src="https://github.com/user-attachments/assets/48836506-a851-46ee-8380-d6e85312ca03" />
+
+  <img width="1917" height="912" alt="image" src="https://github.com/user-attachments/assets/ee421db3-a6de-4869-b613-d2e7790909d4" />
+
+
+
 ---
 
 ## Framework Highlights
